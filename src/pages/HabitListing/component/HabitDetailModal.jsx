@@ -1,5 +1,6 @@
 import { ACTION_TYPES } from "../../../constants/ActionTypes";
 import { useHabitContext } from "../../../context/HabitContext";
+import { toast } from "react-toastify";
 
 export const HabitDetailModal = ({ habit, handleHabitDetailModal ,archived}) => {
   const { dispatch } = useHabitContext();
@@ -7,14 +8,17 @@ export const HabitDetailModal = ({ habit, handleHabitDetailModal ,archived}) => 
   const handleArchiveButton = () => {
     dispatch({ type: ACTION_TYPES.SET_ARCHIVE, payload: habit });
     handleHabitDetailModal();
+    toast.success("Archived!");
   };
   const handleDeleteButton = () => {
     dispatch({ type: ACTION_TYPES.SET_DELETE, payload: habit });
     handleHabitDetailModal();
+    toast.error("Deleted!");
   };
   const handleEditButton = () => {
     dispatch({ type: ACTION_TYPES.SHOW_EDIT_HABIT_MODAL });
     handleHabitDetailModal();
+    toast.success("Edited successfully!");
   };
   return (
     <>

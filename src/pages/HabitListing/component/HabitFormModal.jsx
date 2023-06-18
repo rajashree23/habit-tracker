@@ -33,6 +33,7 @@ export const HabitFormModal = ({ habit }) => {
     if (habitData.name) {
       dispatch({ type: ACTION_TYPES.SET_HABIT, payload: habitData });
       dispatch({ type: ACTION_TYPES.HANDLE_MODAL_CLOSE });
+      toast.save("Saved successfully!")
     } else {
       toast.error("Name can not be empty");
     }
