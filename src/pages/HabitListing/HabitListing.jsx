@@ -1,30 +1,33 @@
-import { useState } from "react";
 import { ACTION_TYPES } from "../../constants/ActionTypes";
 import { useHabitContext } from "../../context/HabitContext";
-import { HabitCard } from "./HabitCard";
 
 import "./habit.layout.css";
-import { HabitFormModal } from "./HabitFormModal";
+
+import { HabitFormModal } from "./component/HabitFormModal";
+import { HabitCard } from "./component/HabitCard";
 
 export const HabitListing = () => {
   const { habits, displayModalType, dispatch } = useHabitContext();
+  const unarchivedHabits = habits.filter(({ archived }) => !archived);
 
   return (
     <>
       <div className="habit-container">
         <div
-          className="habit-card"
+          className="habit-card  add-new"
           onClick={() => dispatch({ type: ACTION_TYPES.SHOW_ADD_HABIT_MODAL })}
         >
-          <p>Create new habit</p>
+          <p>Add a new habit</p>
         </div>
-        {displayModalType === ACTION_TYPES.SHOW_ADD_HABIT_MODAL && (
-          <HabitFormModal />
-        )}
-        {habits.map((habit) => (
+
+        {unarchivedHabits.map((habit) => (
           <HabitCard key={habit.id} habit={habit} />
         ))}
       </div>
+
+      {displayModalType === ACTION_TYPES.SHOW_ADD_HABIT_MODAL && (
+        <HabitFormModal />
+      )}
     </>
   );
 };

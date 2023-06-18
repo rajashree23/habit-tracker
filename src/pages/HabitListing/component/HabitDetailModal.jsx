@@ -1,8 +1,7 @@
 import { ACTION_TYPES } from "../../../constants/ActionTypes";
 import { useHabitContext } from "../../../context/HabitContext";
-import { HabitFormModal } from "../HabitFormModal";
 
-export const HabitDetailModal = ({ habit, handleHabitDetailModal }) => {
+export const HabitDetailModal = ({ habit, handleHabitDetailModal ,archived}) => {
   const { dispatch } = useHabitContext();
 
   const handleArchiveButton = () => {
@@ -25,13 +24,16 @@ export const HabitDetailModal = ({ habit, handleHabitDetailModal }) => {
         <p>Goal: {habit.goal} </p>
         <p>Time of day: {habit.timeOfDay} </p>
         <p>Start Date: {habit.startDate} </p>
-
-        <button onClick={handleHabitDetailModal}>Close</button>
-        <button onClick={handleArchiveButton}>
-          {habit.archived ? "Unarchive" : "Archive"}
-        </button>
-        <button onClick={handleDeleteButton}>Delete</button>
-        <button onClick={handleEditButton}>Edit</button>
+        <div className="button-container">
+          {" "}
+          <button onClick={handleHabitDetailModal} className="discard">Close</button>
+          <button onClick={handleArchiveButton} className="archive">
+            {habit.archived ? "Unarchive" : "Archive"}
+       
+          </button>
+          <button onClick={handleDeleteButton} className="delete">Delete</button>
+          {!archived && <button onClick={handleEditButton} className="save">Edit</button>}
+        </div>
       </div>
     </>
   );

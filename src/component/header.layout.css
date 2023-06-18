@@ -1,0 +1,16 @@
+.header-container{
+    margin:1rem 0rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    color:white;
+    gap:1rem;
+}
+
+.header-container nav{
+    font-size: 1.25rem;
+    text-decoration: none;
+    display: flex;
+    gap:1rem;
+}

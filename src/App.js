@@ -4,6 +4,8 @@ import "react-toastify/dist/ReactToastify.css";
 
 import { Routes, Route } from "react-router-dom";
 import { HabitListing } from "./pages/HabitListing/HabitListing";
+import { ArchivedHabits } from "./pages/ArchivedHabits/ArchivedHabits";
+import { Header } from "./component/Header";
 
 export default function App() {
   return (
@@ -15,8 +17,10 @@ export default function App() {
         limit="1"
         style={{ top: "5.5rem", right: "0.5rem" }}
       />
+      <Header/>
       <Routes>
         <Route path="/" element={<HabitListing />} />
+        <Route path="/archived" element={<ArchivedHabits />} />
       </Routes>
     </div>
   );
