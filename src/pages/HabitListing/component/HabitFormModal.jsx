@@ -8,7 +8,6 @@ import { useHabitContext } from "../../../context/HabitContext";
 import "../habit.layout.css";
 
 export const HabitFormModal = ({ habit }) => {
-  console.log({ habit });
   const [habitData, setHabitData] = useState(
     !habit
       ? {

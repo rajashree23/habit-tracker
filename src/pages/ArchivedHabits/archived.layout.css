@@ -4,7 +4,7 @@
     flex-wrap: wrap;
     gap: 1rem;
 }
-.archived-container p{
+.archived-container .no-msg{
     color: white;
     font-size: 2rem;;
     font-weight: 600;
