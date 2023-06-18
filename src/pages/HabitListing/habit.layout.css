@@ -105,3 +105,11 @@
   background-color: red;
   color: white;
 }
+
+@media(max-width:768px){
+  .habit-modal{
+    left:2%;
+    right:2%;
+  }
+  
+}
